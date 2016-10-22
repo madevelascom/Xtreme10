@@ -7,7 +7,10 @@ import itertools
 def gGDCcd(x,y):
     while y != 0:
         (x, y) = (y, x % y)
-    return x 
+    if (x == 1):
+        return True
+    else:
+        return False 
 
 def sum(alist):
     x= 0
@@ -34,7 +37,8 @@ def main():
             for L in range(1, len(res)+1):
                 for subset in itertools.combinations(res, L):
                     a = reduce(gGDCcd, subset)
-                    if (a == 1):
+                    print (subset, a, 'asdas', sum(subset))
+                    if (a):
                         b = sum(subset)
                         if(b > max):
                             max = b
